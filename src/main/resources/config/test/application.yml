@@ -1,5 +1,37 @@
 spring:
   application:
     name: mydocs
+  #session配置
+  session:
+    timeout: 1800
+  #数据库配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/slydocs?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  #thymeleaf模板配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
 server:
-  port: 8081
+  port: 8080
+  servlet:
+    context-path: /slydocs
+#mybatis配置
+mybatis:
+  type-aliases-package: com.sly.slydocs.**.model
+  mapper-locations:
+    - classpath:mapper/**/*.xml
+#日志配置
+logging:
+  level:
+    root: info
+    web: info
+    org.springframework.jdbc: debug
+    org.mybatis.spring: debug
+  file: D:/logs/slydocs/slydocs.log
+
