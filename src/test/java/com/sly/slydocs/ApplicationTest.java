@@ -1,6 +1,6 @@
 package com.sly.slydocs;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 //@SpringBootTest
 class ApplicationTest {
