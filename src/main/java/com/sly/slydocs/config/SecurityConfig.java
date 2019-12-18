@@ -16,14 +16,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/css/**", "/index").permitAll()
-                .antMatchers("/user/**").hasRole("USER")
+            .authorizeRequests()
+                // 放行路径
+                .antMatchers("/css/**"/*, "/index"*/).permitAll()
+                // 其它路径需要校验
+                .anyRequest().authenticated()
                 .and()
-                .formLogin()
+            .formLogin()
                 .and()
-                .csrf().disable() //关闭CSRF
-                .formLogin().loginPage("/login")
+                //关闭CSRF
+                .csrf().disable()
+                // 配置登录页面路径并且允许全部人访问
+                .formLogin().loginPage("/login").permitAll()
                 .loginProcessingUrl("/form")
                 //成功登陆后跳转页面
                 .defaultSuccessUrl("/index")
