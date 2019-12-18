@@ -18,7 +18,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 // 放行路径
-                .antMatchers("/css/**"/*, "/index"*/).permitAll()
+                .antMatchers("/css/**").permitAll()
                 // 其它路径需要校验
                 .anyRequest().authenticated()
                 .and()
