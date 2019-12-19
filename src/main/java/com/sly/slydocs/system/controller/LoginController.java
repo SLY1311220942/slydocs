@@ -5,21 +5,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 索引controller
  * @author SLY
+ * @time 2019/12/19
  */
 @Controller
-@RequestMapping("/index")
-public class IndexController extends BaseController {
+@RequestMapping("/login")
+public class LoginController extends BaseController {
 
     /**
-     *
+     * @param
      * @return
+     * @author SLY
+     * @time 2019/12/19
      */
     @RequestMapping("/toIndex")
-    public String toIndex(){
+    public String toLogin() {
         return "/system/index.html";
     }
-    
-    
+
+
 }
